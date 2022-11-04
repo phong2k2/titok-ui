@@ -96,7 +96,7 @@ const userMenus = [
 const cx = className.bind(style);
 function Header() {
   const handleMenuChange = (menuitem) => {
-    console.log(menuitem);
+    // console.log(menuitem);
   };
 
   const currentUser = true;
