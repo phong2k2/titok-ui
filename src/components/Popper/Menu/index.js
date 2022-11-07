@@ -32,9 +32,10 @@ function Menu({ children, items, onChange = defaultFn }) {
   };
   return (
     <Tippy
+      hideOnClick={false}
       offset={[12, 8]}
       interactive="true"
-      //   delay={[0, 200]}
+      delay={[0, 500]}
       placement="bottom-end"
       render={(attrs) => (
         <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
@@ -47,7 +48,7 @@ function Menu({ children, items, onChange = defaultFn }) {
                 }}
               />
             )}
-            {renderItems()}
+            <div className={cx('menu-scollable')}>{renderItems()}</div>
           </PopperWrapper>
         </div>
       )}
