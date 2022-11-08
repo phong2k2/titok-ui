@@ -19,7 +19,7 @@ import Button from '~/components/Button';
 import style from './Header.module.scss';
 import { images } from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
-import { MessageIcon, InboxIcon } from '~/components/incon';
+import { MessageIcon, InboxIcon } from '~/components/icons';
 import Image from '~/components/Image';
 import Search from '../Search';
 import config from '~/config';
@@ -29,7 +29,7 @@ const MENU_ITEMS = [
     title: 'Tiếng việt',
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     children: {
-      title: 'Language',
+      title: 'Ngôn ngữ',
       data: [
         {
           type: 'Language',
