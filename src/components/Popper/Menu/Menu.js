@@ -6,6 +6,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Menu.module.scss';
 import MenuItem from './MenuItem';
 import Header from './Header';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
@@ -40,7 +41,7 @@ function Menu({ children, items, hideOnClick = false, onChange = defaultFn }) {
   const renderResult = (attrs) => (
     <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
       <PopperWrapper className={cx('menu-popper')}>
-        {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
+        {history.length > 1 && <Header icon={faChevronLeft} title={current.title} onBack={handleBack} />}
         <div className={cx('menu-scollable')}>{renderItems()}</div>
       </PopperWrapper>
     </div>

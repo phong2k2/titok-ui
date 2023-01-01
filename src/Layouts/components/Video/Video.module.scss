@@ -1,0 +1,198 @@
+.container {
+  width: 698px;
+  display: flex;
+  padding-top: 20px;
+}
+
+.avatar img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  margin-left: 18px;
+}
+
+.authName {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-weight: 200;
+}
+
+.title {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 5px;
+  font-weight: 900;
+  color: #808069;
+}
+
+.follow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  min-height: 30px;
+  color: var(--primary);
+}
+
+.titleContainer {
+  width: 480px;
+  margin-bottom: 10px;
+}
+
+.spanTetxt {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #191919;
+}
+
+.styledCommonLink {
+  font-size: 1.5rem;
+  padding-right: 10px;
+}
+
+.titleMusic {
+  display: flex;
+  align-items: center;
+}
+
+.iconMusic {
+  padding-right: 5px;
+  font-size: 1.4rem;
+}
+
+.titleMusic a {
+  font-size: 1.7rem;
+  color: var(--black);
+}
+.videoWrapper {
+  display: flex;
+}
+
+.divContainer {
+  position: relative;
+  height: 450px;
+  width: 245px;
+  margin-right: 10px;
+}
+
+.videoContent {
+  width: 100%;
+  height: 100%;
+}
+
+.videoContent img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.videoContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.eleVideo {
+  width: 100%;
+  height: 100%;
+}
+
+.videoContainer .video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+
+.pause,
+.play {
+  position: absolute;
+  bottom: 28px;
+  left: 20px;
+  color: var(--while);
+}
+
+.bar {
+  position: absolute;
+  bottom: 6px;
+  width: 100%;
+  padding: 0 8px;
+  display: flex;
+}
+.line {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.line input {
+  width: 100%;
+  height: 3px;
+  -webkit-appearance: none;
+}
+
+.time {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  padding-left: 10px;
+}
+
+.volume,
+.closeVolume {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  color: var(--while);
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.interactive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: transparent;
+  cursor: pointer;
+}
+
+.interactive .spanIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  background-color: rgba(22, 24, 35, 0.06);
+  font-size: 2rem;
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+.interactive strong {
+  font-size: 1.2rem;
+  color: rgba(22, 24, 35, 0.75);
+  line-height: 1.7rem;
+  text-align: center;
+}

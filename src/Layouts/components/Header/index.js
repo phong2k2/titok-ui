@@ -1,3 +1,4 @@
+import { useState, createContext, useEffect } from 'react';
 import className from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -23,6 +24,10 @@ import { MessageIcon, InboxIcon } from '~/components/icons';
 import Image from '~/components/Image';
 import Search from '../Search';
 import config from '~/config';
+import Modal from '~/Layouts/components/Auth';
+import Login from '~/Layouts/components/Auth/partials/Login';
+import SignUp from '~/Layouts/components/Auth/partials/SignUp';
+import PhoneLogin from '~/Layouts/components/Auth/partials/PhoneLogin';
 
 const MENU_ITEMS = [
   {
@@ -81,13 +86,47 @@ const userMenus = [
   },
 ];
 const cx = className.bind(style);
+
+export const ModalBodyNameContext = createContext();
+
 function Header() {
   const handleMenuChange = (menuitem) => {
     // console.log(menuitem);
   };
 
-  const currentUser = true;
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [modalBodyName, setModalBodyName] = useState(null);
+  const [children, setChildren] = useState(<Login />);
+  const [nextPage, setNextPage] = useState(null);
 
+  const handleModalBody = (value) => {
+    setModalBodyName(value || 'login');
+  };
+  const value = {
+    handleModalBody,
+  };
+  const currentUser = false;
+
+  useEffect(() => {
+    switch (modalBodyName) {
+      case 'login':
+        setChildren(<Login />);
+        setNextPage(null);
+        break;
+      case 'signUp':
+        setChildren(<SignUp />);
+        setNextPage(null);
+        break;
+      case 'phoneLogin':
+        setChildren(<PhoneLogin />);
+        setNextPage('login');
+        break;
+      default:
+        setChildren(<Login />);
+        setNextPage(null);
+        break;
+    }
+  }, [modalBodyName]);
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
@@ -116,11 +155,31 @@ function Header() {
               <Button outline leftIcon={<FontAwesomeIcon icon={faSignIn} />}>
                 Tải lên
               </Button>
-              <Button primary className={cx('custom-login')}>
+              <Button
+                primary
+                className={cx('custom-login')}
+                onClick={() => {
+                  setShowAuthModal((prev) => !prev);
+                }}
+              >
                 Log in
               </Button>
             </>
           )}
+
+          <ModalBodyNameContext.Provider value={value}>
+            {showAuthModal && (
+              <Modal
+                children={children}
+                onClose={() => {
+                  setShowAuthModal((prev) => !prev);
+                  setModalBodyName('');
+                }}
+                nextPage={nextPage}
+              />
+            )}
+          </ModalBodyNameContext.Provider>
+
           <>
             <Menu items={currentUser ? userMenus : MENU_ITEMS} onChange={handleMenuChange}>
               {currentUser ? (

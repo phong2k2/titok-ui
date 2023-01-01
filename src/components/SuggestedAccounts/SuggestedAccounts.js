@@ -4,16 +4,16 @@ import styles from './SuggestedAccounts.module.scss';
 import AccountItem from './AccountItem';
 
 const cx = classNames.bind(styles);
-function SuggestedAccounts({ lable }) {
+
+function SuggestedAccounts({ lable, data, onSeeAll, isSeeAll }) {
   return (
     <div className={cx('wrapper')}>
       <p className={cx('fllowing-account')}>{lable}</p>
-      <AccountItem />
-      <AccountItem />
-      <AccountItem />
-      <AccountItem />
-      <div className={cx('more-btn')}>
-        <p>Xem tất cả</p>
+      {data.map((result) => (
+        <AccountItem key={result.id} data={result} />
+      ))}
+      <div onClick={onSeeAll} className={cx('more-btn')}>
+        <p>{isSeeAll}</p>
       </div>
     </div>
   );
